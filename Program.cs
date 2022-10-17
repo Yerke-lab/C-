@@ -1,45 +1,57 @@
-﻿/* Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3 */
+﻿//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+//[345, 897, 568, 234] -> 2
 
-//РЕШЕНИЕ
-
-/* Console.WriteLine("Введите длину массива:");
-int M = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[M];
-int posNumber = 0;
-Console.WriteLine("Введите числа массива:");
-
-for (int i = 0; i < M; i++)
+/*
+int[] array = new int[10];
+int count = 0;
+for (int i = 0; i < array.Length; i++)
 {
- array[i] =  Convert.ToInt32(Console.ReadLine());
+    array[i] = new Random().Next(100,1000);
+    Console.Write(array[i] + " ");
+    if (array[i] % 2 == 0) count++;
 }
-int fillArray (int[] array) {
-for (int j = 0; j < M; j++) {
-    if (array[j] > 0)    {
-        posNumber++;
-    }
-} return posNumber;
+Console.WriteLine();
+Console.WriteLine($"Количество четных чисел в массиве = {count}");
+*/
+
+//Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+//[3, 7, 23, 12] -> 19
+//[-4, -6, 89, 6] -> 0
+
+/*
+int[] array = new int[5];
+int sum = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = new Random().Next(0,100);
+    Console.Write(array[i] + " ");
+    if (i % 2 != 0) sum += array[i];
 }
-Console.WriteLine($" {String.Join(", ", array)} -> {fillArray(array)}"); */
+Console.WriteLine();
+Console.WriteLine($"Сумма элементов, стоящих на нечетных позициях = {sum}");
+*/ 
+
+//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+//[3 7 22 2 78] -> 76
 
 
-/* Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
-заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
-значения b1, k1, b2 и k2 задаются пользователем.
-b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5) */
-
-//РЕШЕНИЕ
-
-/* Console.WriteLine("Введите значение b1: ");
-double b1 = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите значение k1: ");
-double k1 = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите значение b2: ");
-double b2 = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите значение k2: ");
-double k2 = Convert.ToDouble(Console.ReadLine());
-double x = ((b2 - b1) / (k1 - k2));
-double y = (k2 * x) + b2;
-Console.WriteLine($"b1 = {b1}, k1 = {k1}, b2 = {b2}, k2 = {k2} -> ({x}; {y}) "); */
-
+double[] array = new double[5];
+for (int index = 0; index < array.Length; index++)
+{
+    array[index] = new Random().Next(0,100);
+    Console.Write(array[index] + " ");
+}
+int j = 0;
+double min = array[j];
+int i = 0;
+double max = array[i];
+while (j < array.Length-1 && i < array.Length-1)
+{
+    j++;
+    i++;
+    if(min > array[j]) min = array[j];
+    if(max < array[i]) max = array[i];
+}
+double diff = max - min;
+Console.WriteLine();
+Console.WriteLine($"Разница между максимальным и минимальным элементов массива = {diff}");
