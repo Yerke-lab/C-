@@ -1,136 +1,45 @@
-﻿/* Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
-m = 3, n = 4.
-0,5 7 -2 -0,2
-1 -3,3 8 -9,9
-8 7,8 -7,1 9 */
+﻿/* Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+0, 7, 8, -2, -2 -> 2
+1, -7, 567, 89, 223-> 3 */
 
-/* Console.WriteLine("Введите длину двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите длину ширину массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-double[,] twoDimArray = new double[m, n];
-Random rnd = new Random();
-void PrintArray(double[,] matr)
+//РЕШЕНИЕ
+
+/* Console.WriteLine("Введите длину массива:");
+int M = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[M];
+int posNumber = 0;
+Console.WriteLine("Введите числа массива:");
+
+for (int i = 0; i < M; i++)
 {
- for (int i = 0; i < m; i++)
- {
- for (int j = 0; j < n; j++)
- {
- Console.Write($"{matr[i, j]} ");
- }
- Console.WriteLine();
- }
+ array[i] =  Convert.ToInt32(Console.ReadLine());
 }
-
-void FillArray(double[,] matr)
-{
- for (int i = 0; i < m; i++)
- {
- for (int j = 0; j < n; j++)
- {
- matr[i,j] = Convert.ToDouble(rnd.Next(-100, 100)/10.0);
- }
- }
-}
-FillArray(twoDimArray);
-Console.WriteLine();
-PrintArray(twoDimArray); */
-
-
-
-/* Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-17 -> такого числа в массиве нет */
-
-/* Console.WriteLine("Введите длину двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите длину ширину массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] twoDimArray = new int [m, n];
-Random rnd = new Random();
-void PrintArray(int[,] matr)
-{
- for (int i = 0; i < m; i++)
- {
- for (int j = 0; j < n; j++)
- {
- Console.Write($"{matr[i, j]} ");
- }
- Console.WriteLine();
- }
-}
-
-void FillArray(int[,] matr)
-{
- for (int i = 0; i < m; i++)
- {
- for (int j = 0; j < n; j++)
- {
- matr[i,j] = rnd.Next(0, 10);
- }
- }
-}
-FillArray(twoDimArray);
-Console.WriteLine();
-Console.WriteLine("введите число для поиска в двумерном массиве:");
-int number = Convert.ToInt32(Console.ReadLine());
-void FindNumber(int[,] matr)
-{ int count = 0;
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
- {
- if (number == matr[i,j]) count++; 
-  }
+int fillArray (int[] array) {
+for (int j = 0; j < M; j++) {
+    if (array[j] > 0)    {
+        posNumber++;
     }
-    if (count > 0) Console.WriteLine($"{number} -> такое число есть в массиве");
-    else Console.WriteLine($"{number} -> такого числа нет в массиве");
+} return posNumber;
 }
-PrintArray(twoDimArray); 
-FindNumber(twoDimArray); */
+Console.WriteLine($" {String.Join(", ", array)} -> {fillArray(array)}"); */
 
-/* Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3. */
 
-/* Console.WriteLine("Задайте количество строк двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Задайте количество столбцов двумерного массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] twoDimArray = new int [m, n];
-Random rnd = new Random();
-void PrintArray(int[,] matr)
-{
- for (int i = 0; i < m; i++)
- {  for (int j = 0; j < n; j++)
-  { Console.Write($"{matr[i, j]} ");  }
-  Console.WriteLine(); } }
+/* Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
+заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
+значения b1, k1, b2 и k2 задаются пользователем.
+b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5) */
 
-void FillArray(int[,] matr)
-{ for (int i = 0; i < m; i++)
- { for (int j = 0; j < n; j++)
- { matr[i,j] = rnd.Next(0, 10); } } }
-FillArray(twoDimArray);
-Console.WriteLine();
+//РЕШЕНИЕ
 
-void FindAverage(int[,] matr)
-{
-    for (int i = 0; i < m; i++)
-    {int sum  = 0;
-    double average  = 0;
-        for (int j = 0; j < n; j++)
- {
- sum = sum + matr[i, j]; 
-   }  average = sum / (double)n;
-   Console.WriteLine($"Среднее арифметическое столбца: {Math.Round(average, 1)} ");
-    } 
-        }
-PrintArray(twoDimArray); 
-FindAverage(twoDimArray);  */
+/* Console.WriteLine("Введите значение b1: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите значение k1: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите значение b2: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите значение k2: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+double x = ((b2 - b1) / (k1 - k2));
+double y = (k2 * x) + b2;
+Console.WriteLine($"b1 = {b1}, k1 = {k1}, b2 = {b2}, k2 = {k2} -> ({x}; {y}) "); */
 
